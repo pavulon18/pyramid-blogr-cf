@@ -93,9 +93,8 @@ def sign_in_out(request):
 # Jinja2 markdown filter
 def render_markdown(content, linenums=False, pygments_style='default'):
     ext = "codehilite(linenums={linenums}, pygments_style={pygments_style})"
-    output = Markup(
+    return Markup(
         markdown.markdown(
             content,
             extensions=[ext.format(**locals()), 'fenced_code'])
     )
-    return output
